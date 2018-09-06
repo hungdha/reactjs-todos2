@@ -8,6 +8,9 @@ import UserList from '../containers/UserList';
 
 
 class App extends Component {
+    componentDidMount(){
+        console.log('componentDidMountx xxxx')
+    }
     render() {
         return (
           

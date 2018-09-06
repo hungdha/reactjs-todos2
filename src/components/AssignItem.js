@@ -8,9 +8,6 @@ class AssignItem extends Component {
         let assigns = assigned.filter( (item)=>{
             return item.todoid == todoid 
         });
-        console.log('assigns')
-        console.log(assigns) 
-        
         for( let i =0 ; i < users.length; i++){
              for (let j = 0; j < assigns.length; j++) {
                 let obj = assigns[j];
@@ -25,11 +22,6 @@ class AssignItem extends Component {
                 arr.push(result)
             } */
         }
- 
-
-      
-            
-
         return (
             <div> Assigned: 
                 {

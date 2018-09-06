@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import AssignBox from '../components/AssignBox';
 import SelectCheckbox from '../components/SelectCheckbox';
 import { assignUsers } from '../actions';
-
+import PropTypes from 'prop-types';
 
 class AssignLink extends Component {
     handleAssign(users){
@@ -14,13 +14,15 @@ class AssignLink extends Component {
         return (
             <div>
                 <SelectCheckbox data={this.props.users} 
-                onDone={this.handleAssign.bind(this)}    
+                onDone={(e) => this.handleAssign(e)}    
                  />
             </div>
         );
     }
 }
-
+AssignLink.propTypes = {
+    todoid: PropTypes.number.isRequired
+}
 
 const mapStateToProps = (state, ownProps) => (
     {

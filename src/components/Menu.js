@@ -8,11 +8,10 @@ class Menu extends Component {
         return (    
             <div>
                 <ul className="nav">
-                    <li className="nav-item active">
-                        <Link to="/" >Home</Link> | 
-                        
-                    </li>
                     <li className="nav-item ">
+                        <Link to="/" >Home</Link> | 
+                    </li>
+                    <li className="nav-item active">
                         <Link to="/todos">Todos ({this.props.totalTodo})</Link>
                     </li>
                     <li className="nav-item">

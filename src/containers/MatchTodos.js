@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import { VisibilityFilters, addTodo } from '../actions';
 // import FilterTodo from './FilterTodo';
 import TodoFilter from '../components/TodoFilter';
+import TodoMenu from '../components/TodoMenu';
 // import ActionLink from './ActionLink';
 class MatchTodos extends Component {
    
@@ -32,7 +33,7 @@ class MatchTodos extends Component {
         }
     }
     componentDidMount(){
-        console.log('componentDidMount')
+        // console.log('componentDidMount')
         // const param = this.props.match.params.status;
         // const { dispatch }  = this.props;
         // console.log('dispath here debug.')
@@ -63,7 +64,7 @@ class MatchTodos extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps')
+        console.log('componentWillReceiveProps xxx')
                 /* if (nextProps.fullName !== this.props.fullName) {
                   loadData(nextProps);
                 } */
@@ -77,6 +78,7 @@ class MatchTodos extends Component {
             <div>
                 <AddTodo />
                 <TodoFilter />
+                <TodoMenu />
                 <Route path={`${match.path}/:status?`} component={VisibleTodoList} />
             </div>
         );
