@@ -14,7 +14,6 @@ class AssignBox extends Component {
         
     }
     handleAssign(uids){
-        // console.log(this.props)
         /* let {dispatch, todoid } = this.props;
         if(uids.length > 0){
             uids.map((user) => {

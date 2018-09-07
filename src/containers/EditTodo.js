@@ -5,10 +5,11 @@ class EditTodo extends Component {
 
     handleSave(event){
         event.preventDefault();
-        let {id, dispatch} = this.props;
+        let {id,completed, dispatch} = this.props;
         dispatch(updateTodo({
             id : id, 
-            text: this.refs.text.value
+            title: this.refs.title.value,
+            completed : completed
         }));
         dispatch(editTodo(0))
     }
@@ -29,7 +30,7 @@ class EditTodo extends Component {
             return (
                 <form ref={el => this.myFormRef = el}>
                     <div style={{ width:'500px'}}>
-                        <textarea style={{ width:'100%', height:'50px'}} ref="text" defaultValue= {this.props.text} onKeyDown={this.onEnterPress} >
+                        <textarea style={{ width:'100%', height:'50px'}} ref="title" defaultValue= {this.props.title} onKeyDown={this.onEnterPress} >
                         </textarea>
                         <div style={{display:'block', margin:'10px 0'}}>
                             <button type="submit" onClick={this.handleSave.bind(this)} >Save</button>

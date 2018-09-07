@@ -8,16 +8,14 @@ import UserList from '../containers/UserList';
 
 
 class App extends Component {
-    componentDidMount(){
-        console.log('componentDidMountx xxxx')
-    }
+    
     render() {
         return (
           
             <div style={{ margin:'0 auto', padding:'0 20px' }}>
                 <Menu />
                 <Switch>
-                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/home" component={Home}/>
                     <Route path="/todos" component={MatchTodos} />
                     <Route path="/users" component={UserList} />
                 </Switch>

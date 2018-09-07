@@ -5,7 +5,7 @@ const todos = (state = [], action) => {
                 ...state,
                 {
                     id: action.id,
-                    text : action.text,
+                    title : action.title,
                     completed : false
                 }
             ]
@@ -24,17 +24,11 @@ const todos = (state = [], action) => {
         case 'UPDATE_TODO':
              return state.map(
                 (todo) => 
-                     (todo.id == action.todo.id) ? {...todo, text: action.todo.text} : todo
+                     (todo.id == action.todo.id) ? {...todo, title: action.todo.title} : todo
                 
             ) 
         case 'RECEIVE_TODOS':
-       
-            return action.todos;
-      /*   case 'ASSIGN_USER':
-            return state.map(
-                (todo) => (todo.id == action.obj.todoid) ? {...todo, assigns: [action.obj.uids]} : todo
-            )
-             */
+            return action.todos
         default:
             return state
     }

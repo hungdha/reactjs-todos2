@@ -24,9 +24,9 @@ const store = createStore(rootReducer,composeEnhancers(
 
 store.dispatch(getAllTodos());
 store.dispatch(getAllUsers());
-store.subscribe(function(){
+/* store.subscribe(function(){
     console.log('Store has been subscribe !!! ');
-})
+}) */
 render(
     <Provider store={store}>
         <BrowserRouter>

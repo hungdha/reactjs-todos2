@@ -138,9 +138,7 @@ class Topic extends Component {
 class Resource extends Component {
     render() {
         let {match} = this.props;
-        // console.log(match)
         const topic = topics.find(({ id }) => id === match.params.topicId).resources.find(({ id }) => id === match.params.subId)
-        // console.log(topic);
         return (
             <div>
                     <h3>{topic.name}</h3>

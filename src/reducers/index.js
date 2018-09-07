@@ -4,6 +4,7 @@ import visibilityFilter from './visibilityFilter'
 import editing from './editing';
 import users from './users';
 import assigned from './assigned';
+import countTodos from './countTodos';
 
 
 export default combineReducers(
@@ -12,6 +13,7 @@ export default combineReducers(
         users,
         editing,
         visibilityFilter,
-        assigned
+        assigned,
+        countTodos
     }
 )

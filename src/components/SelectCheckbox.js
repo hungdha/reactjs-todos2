@@ -11,7 +11,6 @@ class SelectCheckbox extends Component {
         }      
     }
     handleDone(event){
-        // console.log(this.props)
         if(this.props.onDone != undefined)
             this.props.onDone(this.state.ids);
         this.setState({
@@ -24,7 +23,6 @@ class SelectCheckbox extends Component {
         });
     }
     handleSelectUser(event){
-        // console.log(this.state.ids)
         const uid = +event.target.value;
         if( event.target.checked ){
 

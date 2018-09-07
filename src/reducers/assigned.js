@@ -2,13 +2,13 @@ const assigned = (state = [], action) => {
     switch (action.type) {
         case 'ASSIGN':
 
-            let filterState = state.filter( (item) => ( item.todoid != action.todoid )); 
+            let filterState = state.filter( (item) => ( item.todoId != action.todoId )); 
             return [
                 ...filterState,
-                ...action.users.map( (userid) => (
+                ...action.users.map( (userId) => (
                 {
-                    userid : userid ,
-                    todoid : action.todoid 
+                    userId : userId ,
+                    todoId : action.todoId 
                 }
                 ))
             ]

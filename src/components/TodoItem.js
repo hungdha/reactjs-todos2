@@ -6,34 +6,16 @@ import AssignLink from '../containers/AssignLink';
 import AssignItem from './AssignItem';
 
 class TodoItem extends Component {
-    /* renderUser(){
-        let { users, assigns } = this.props;
-        if(assigns !== undefined){
-            return users.map(user =>{
-                let h =  assigns.find( id => {
-                    return id == user.id
-                })
-
-                if(h != undefined){
-                    return (<span>{user.name}</span>)
-                }
-            });
-        }else{
-            return (<span>No assign</span>)
-        }
-    } */
-
-
     render() {
-        let {id, text, completed } = this.props;
+        let {id, title, completed } = this.props;
         let hexColor =  completed ? 'red' : 'blue';
         return (
             <div>
-                <p style={{color: hexColor }}>{this.props.text}</p>
-                <EditTodo id={id} text={text} completed={completed}  />
-                <ActionLink id={id} text={text} completed={completed} />
-                <AssignLink todoid={id} />
-                <AssignItem todoid={id} />
+                <p style={{color: hexColor }}>{this.props.title}</p>
+                <EditTodo id={id} title={title} completed={completed}  />
+                <ActionLink id={id} title={title} completed={completed} />
+                <AssignLink todoId={id} />
+                <AssignItem todoId={id} />
             </div>
         );
     }
@@ -41,7 +23,7 @@ class TodoItem extends Component {
 
 TodoItem.propTypes = {
     id : PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     completed : PropTypes.bool.isRequired
 }
 

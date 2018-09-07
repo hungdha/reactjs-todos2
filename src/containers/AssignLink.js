@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 
 class AssignLink extends Component {
     handleAssign(users){
-        let {dispatch, todoid} = this.props;
-        dispatch(assignUsers(users, todoid))
+        let {dispatch, todoId} = this.props;
+        dispatch(assignUsers(users, todoId))
     }
     render() {
         return (
@@ -21,7 +21,7 @@ class AssignLink extends Component {
     }
 }
 AssignLink.propTypes = {
-    todoid: PropTypes.number.isRequired
+    todoId: PropTypes.number.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => (

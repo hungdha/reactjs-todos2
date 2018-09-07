@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddUser from '../containers/AddUser';
+import Paging from './Paging';
 
 class UserList extends Component {
     countAssign(uid){
@@ -19,6 +20,7 @@ class UserList extends Component {
                         ))
                     } 
                 </ul>
+                <Paging />
             </div>
         );
     }

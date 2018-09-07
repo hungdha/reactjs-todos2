@@ -34,7 +34,9 @@ const mapStateToProps = (state, ownProps) => (
 
 const mapDispatchToProps = (dispatch, ownProps) =>(
     {
-        onDelete : () => dispatch(deleteTodo(ownProps.id)),
+        onDelete : () => 
+            dispatch(deleteTodo(ownProps.id))
+        ,
         onEdit : () => dispatch(editTodo(ownProps.id)),
         onCompleted : () => dispatch(toggleTodo(ownProps.id))
     }

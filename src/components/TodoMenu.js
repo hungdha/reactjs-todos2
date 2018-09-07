@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {withRouter, NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 class TodoMenu extends Component {
+    
     render() {
         return (
             <div>
                 <ul>
                     <li>
-                        <Link to='/todos/all'>All</Link> | 
-                        <Link to='/todos/active'>Active</Link> |
-                        <Link to='/todos/completed'>Completed</Link>
+                        <NavLink to='/todos/all' activeClassName="active"
+                        activeStyle={{
+                            fontWeight: 'bold',
+                            color: 'red'
+                        }}
+                        >All</NavLink> | 
+                        <NavLink to='/todos/active' activeClassName="active">Active</NavLink> |
+                        <NavLink to='/todos/completed' activeClassName="active">Completed</NavLink>
                     </li>
                 </ul>
             </div>
@@ -16,4 +23,5 @@ class TodoMenu extends Component {
     }
 }
 
-export default TodoMenu;
+
+export default withRouter(connect()(TodoMenu));
