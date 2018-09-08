@@ -1,15 +1,8 @@
-/**
- * Mocking client-server processing
- */
-import _todos from './data.json';
-import _users from './user.json';
 import axios from 'axios';
-
-const TIMEOUT = 100
 
 export default {
     // getTodos: (cb, timeout) => setTimeout(() => cb(_todos), timeout || TIMEOUT),
-    getTodos:(params, callback ) => {
+    fetchTodos:(params, callback ) => {
         /* let query = ''
         if(params){
             // const { completed, _start, _limit } = params;
@@ -51,13 +44,13 @@ export default {
     },
     updateTodo :( todo, callback) =>{
         axios.put('http://localhost:3000/todos/' + todo.id, {...todo}).then(function(res){
-            callback(res);
+            callback(res.data);
         }).catch(function(err){
             throw err;
         })
     },
     // getUsers: (cb, timeout) => setTimeout(() => cb(_users), timeout || TIMEOUT),
-    getUsers:(params, callback) => {
+    fetchUsers:(params, callback) => {
         let query = '';
     
         axios.get('http://localhost:3000/users' + query).then(
@@ -115,21 +108,7 @@ export default {
                 throw err;
             })
         })
-    },
-    getUsersAssigned : (userId, callback) => {
-        axios.get('http://localhost:3000/assigns', {
-            userId : userId
-        }).then(
-            (res) => {
-                callback(res.data)
-            }
-        ).catch(
-            () => {
-
-            }
-        )
     }
-    
 }
 
 

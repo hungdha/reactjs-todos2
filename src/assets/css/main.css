@@ -45,8 +45,12 @@ li.nav-item a:hover:not(.active) {
     background-color: #111;
 }
 
-a.active{
+li.nav-item a.active{
     color:'#000999';
     font-weight: bold;
     background-color: #4CAF50;
+}
+a.selected{
+    color:'#000999';
+    font-weight: bold;
 }

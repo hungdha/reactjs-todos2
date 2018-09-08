@@ -8,14 +8,11 @@ class TodoMenu extends Component {
             <div>
                 <ul>
                     <li>
-                        <NavLink to='/todos/all' activeClassName="active"
-                        activeStyle={{
-                            fontWeight: 'bold',
-                            color: 'red'
-                        }}
+                        <NavLink to='/todos/all' activeClassName="selected"
+                        
                         >All</NavLink> | 
-                        <NavLink to='/todos/active' activeClassName="active">Active</NavLink> |
-                        <NavLink to='/todos/completed' activeClassName="active">Completed</NavLink>
+                        <NavLink to='/todos/active' activeClassName="selected">Active</NavLink> |
+                        <NavLink to='/todos/completed' activeClassName="selected">Completed</NavLink>
                     </li>
                 </ul>
             </div>

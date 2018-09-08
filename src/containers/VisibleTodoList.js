@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // components
 import TodoList from '../components/TodoList';
 // actions
-import {VisibilityFilters, getAllTodos} from '../actions';
+import {VisibilityFilters,  fetchTodos} from '../actions';
 import axios from 'axios';
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -25,14 +25,17 @@ class VisibleTodoList extends React.Component{
   componentDidMount(){
     const { dispatch, match } = this.props;
     const stt = match.params.status;
-    dispatch(getAllTodos());
-    // getAllTodos(stt);
+    console.log('componentDidMount')
+    dispatch(fetchTodos({
+      completed : stt
+    }));
+    // fetchTodos(stt);
   }
   componentDidUpdate(prevProps, prevState){
     const { dispatch, match } = this.props;
     const stt = match.params.status;
     if(prevProps.match.params.status != this.props.match.params.status ){
-      dispatch(getAllTodos({
+      dispatch(fetchTodos({
         completed : stt
       }));
     }
@@ -40,17 +43,17 @@ class VisibleTodoList extends React.Component{
 
   handlePage(page){
     const {dispatch, match} = this.props;
-    dispatch(getAllTodos({
+    dispatch(fetchTodos({
         completed : match.params.status,
         _start : (page - 1) * PER_PAGE,
         _limit : PER_PAGE
     })) 
 	}
   	render(){
-    	const {todos, countTotalTodos, dispatch } = this.props;
-        const pages = Math.ceil(countTotalTodos/ PER_PAGE);
+    	const {todos, dispatch } = this.props;
+        const pages = Math.ceil(todos.total / PER_PAGE);
 		return (
-		<div>
+		<div style={{opacity: todos.isFetching ? 0.1 : 1 }}>
 			<TodoList {...this.props} />
 			<Paging pages={pages} handleClick={this.handlePage.bind(this)} />
 		</div>
@@ -58,13 +61,16 @@ class VisibleTodoList extends React.Component{
   	}
 }
 // map state to props
-const mapStateToProps = (state, ownProps) => ({
-    todos: getVisibleTodos(state.todos, state.visibilityFilter),
-    countTotalTodos : state.countTodos,
-    assigned : state.assigned,
-    isEditing : state.isEditing
-})
+const mapStateToProps = (state, ownProps) => 
+{
+  return {
+      // todos: getVisibleTodos(state.todos.items, state.visibilityFilter),
+      todos : state.todos,
+      assigned : state.assigned,
+      isEditing : state.isEditing
+  }
+}
 
 export default connect(
-    mapStateToProps
+  mapStateToProps
 )(VisibleTodoList)

@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>(
             dispatch(deleteTodo(ownProps.id))
         ,
         onEdit : () => dispatch(editTodo(ownProps.id)),
-        onCompleted : () => dispatch(toggleTodo(ownProps.id))
+        onCompleted : () => dispatch(toggleTodo(ownProps))
     }
 )
 

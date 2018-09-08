@@ -1,44 +1,52 @@
-import data from '../api/data'
-import _todos from '../api/data.json'
+import services from '../api'
+// import _todos from '../api/services.json'
 import { PER_PAGE } from '../constants'
-let nextTodoId = _todos.length + 1
+// let nextTodoId = _todos.length + 1
 
-export const addTodo = text => ({
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text 
+
+export const ADD_TODO = 'ADD_TODO'
+export const TOGGLE_TODO = 'TOGGLE_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
+export const RECEIVE_TODOS = 'RECEIVE_TODOS'
+export const TOTAL_TODOS = 'TOTAL_TODOS'
+export const EDIT_TODO = 'EDIT_TODO'
+export const UPDATE_TODO = 'UPDATE_TODO'
+export const COUNT_TOTAL_TODOS = 'COUNT_TOTAL_TODOS'
+export const REQUEST_TODOS = 'REQUEST_TODOS'
+
+export const actionAddTodo = todo => ({
+    type: ADD_TODO,
+    todo 
 })
+
 
 export const removeTodo = id => ({
     type : 'DELETE_TODO',
     id : id
 })
 
-export const receiveTodos = (todos, total) => (
+
+const receiveTodos = (todos, total, params) => (
     {
-    type: 'RECEIVE_TODOS',
-    todos,
-    total
+    type: RECEIVE_TODOS,
+    params,
+    todos: todos,
+    total,
+    receivedAt: Date.now()
 })
 
-export const totalTodos = (total) => (
-    {
-    type: 'TOTAL_TODOS',
-    total
-})
-
-export const toggleTodo = id => ({
-    type: 'TOGGLE_TODO',
+export const actionToggleTodo = id => ({
+    type: TOGGLE_TODO,
     id
 })
 
 export const editTodo = id => ({
-    type: 'EDIT_TODO',
+    type: EDIT_TODO,
     id
 })
 
-export const updateTodo2 = todo => ({
-    type: 'UPDATE_TODO',
+export const actionUpdateTodo = todo => ({
+    type: UPDATE_TODO,
     todo
 })
 
@@ -47,11 +55,6 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
-
-export const countTotalTodos = (count) =>({
-    type : 'COUNT_TOTAL_TODOS',
-    count
-});
 
 
 export const getAllTodos = (params) => dispatch => {
@@ -70,25 +73,69 @@ export const getAllTodos = (params) => dispatch => {
             _limit : PER_PAGE
         };
     }
-    data.getTodos( _params,
-        function(todos, count){
-            dispatch(receiveTodos(todos)) 
-            dispatch(countTotalTodos(+count))
+
+    // console.log(services.todos);
+
+    dispatch(requestTodos(_params));
+    services.todos.fetchTodos( _params,
+        function(todos, total){
+            dispatch(receiveTodos(todos, total, _params )) 
+            // dispatch(countTotalTodos(+count))
         }
     );
 }
 
 
+function requestTodos(params) {
+  return {
+    type: REQUEST_TODOS,
+    params
+  }
+}
+export function fetchTodos(params){
+    let _params = {}
+    if( params != undefined){ 
+
+        if( params.hasOwnProperty('completed') && params.completed != 'all'){
+            _params.completed =  (params.completed == 'active') ? false : true;
+        }
+        _params._start = params.hasOwnProperty('_start') ? params._start : 0;
+        _params._limit = params.hasOwnProperty('_limit') ? params._limit : PER_PAGE;
+             
+    }else{
+        _params = {
+            _start : 0,
+            _limit : PER_PAGE
+        };
+    }
+    return function(dispatch){
+        dispatch(requestTodos(_params));
+        services.todos.fetchTodos( _params,
+            function(todos, total){
+                dispatch(receiveTodos(todos, total, _params )) 
+                // dispatch(countTotalTodos(+count))
+            }
+        );
+    }
+} 
 
 export const setVisibilityFilter = filter => ({
     type: 'SET_VISIBILITY_FILTER',
     filter
 })
 
+export function addTodo(params){
+    return function(dispatch){
+        dispatch(requestTodos);
+        services.todos.insertTodo(params, function(res){
+            dispatch(actionAddTodo(res))
+        })
+    }
+}
 
 export function deleteTodo(id){
     return (dispatch) => {
-        data.deleteTodo(id,
+        services.todos.deleteTodo(id,
             function(res){
                 dispatch(removeTodo(id))
             }
@@ -98,11 +145,20 @@ export function deleteTodo(id){
     
 export function updateTodo(todo){
     return (dispatch) => {
-        data.updateTodo(todo, function(res){
-            dispatch(updateTodo2(todo))
+        services.todos.updateTodo(todo, function(res){
+            dispatch(actionUpdateTodo(res))
         })
     }
 }
+
+export function toggleTodo(todo){
+    return (dispatch) => {
+        services.todos.updateTodo({...todo, completed: !todo.completed}, function(res){
+            dispatch(actionToggleTodo(todo.id))
+        })
+    }
+}
+
 
 //===========================================
 // USER
@@ -118,8 +174,9 @@ export const addUser2 = (name) =>({
     type : 'ADD_USER',
     name
 })
+
 export const getAllUsers = () => dispatch => {
-    data.getUsers(
+    services.users.fetchUsers(
         {}    
         ,users => {
             dispatch(receiveUsers(users))
@@ -129,7 +186,7 @@ export const getAllUsers = () => dispatch => {
 
 export function addUser(title){
     return (dispatch) => {
-        data.addUser()
+        services.addUser()
     }
 }
 

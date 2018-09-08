@@ -25,7 +25,7 @@ class Paging extends Component {
     }
     render() {
         return (
-            <div> Shown : {this.state.currentPage}/{this.props.pages}
+            <div> Shown : page {this.state.currentPage}/{this.props.pages} total pages
                 <div className="pagination">
                     <a href="#">&laquo;</a>
                         {this.renderPage(this.props.pages)}               

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, fetchTodos } from '../actions';
 class AddTodo extends Component {
     saveTodo(event){
         event.preventDefault();
-        let todo = this.refs.todo.value;
+        let text = this.refs.todo.value;
         let {dispatch} = this.props;
-        dispatch(addTodo(todo));
+        dispatch(addTodo({
+            title : text,
+            completed : false 
+        }));
         this.refs.todo.value  = '';
     }
     render() {
