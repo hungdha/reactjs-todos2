@@ -22,8 +22,8 @@ const store = createStore(rootReducer,composeEnhancers(
     )
 )
 
-store.dispatch(fetchTodos());
-store.dispatch(getAllUsers());
+// store.dispatch(fetchTodos());
+// store.dispatch(getAllUsers());
 /* store.subscribe(function(){
     console.log('Store has been subscribe !!! ');
 }) */

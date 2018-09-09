@@ -22,18 +22,20 @@ import {PER_PAGE} from '../constants';
 
 class VisibleTodoList extends React.Component{
   
+  
   componentDidMount(){
     const { dispatch, match } = this.props;
     const stt = match.params.status;
-    console.log('componentDidMount')
     dispatch(fetchTodos({
       completed : stt
     }));
-    // fetchTodos(stt);
   }
+  
+
   componentDidUpdate(prevProps, prevState){
     const { dispatch, match } = this.props;
     const stt = match.params.status;
+    // console.log('componentDidUpdate 222')
     if(prevProps.match.params.status != this.props.match.params.status ){
       dispatch(fetchTodos({
         completed : stt

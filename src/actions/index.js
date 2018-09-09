@@ -86,12 +86,12 @@ export const getAllTodos = (params) => dispatch => {
 }
 
 
-function requestTodos(params) {
-  return {
+
+const requestTodos = params => ({
     type: REQUEST_TODOS,
     params
-  }
-}
+})
+
 export function fetchTodos(params){
     let _params = {}
     if( params != undefined){ 
