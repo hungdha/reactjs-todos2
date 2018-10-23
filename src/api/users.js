@@ -1,47 +1,27 @@
 import axios from 'axios';
+
+// import services from '../api'
+// import _todos from '../api/services.json'
+// import { PER_PAGE } from '../constants'
+// let nextTodoId = _todos.length + 1
+const ROOT_URL = 'http://localhost:3000';
+
 export default{
-    fetchUsers:(params, callback) => {
-        let query = '';
-    
-        axios.get('http://localhost:3000/users' + query).then(
-            function(res){
-                callback(res.data)
-            }
-        ).catch(
-            function(err){
-                throw err;
-            }
-        )
+    fetchUsers:(params) => {
+        return axios.get('http://localhost:3000/users');
     },
-    insertUser : (text, callback) => {
-        axios.post('http://localhost:3000/users', {text}).then(function(res){
-            callback(res.data);
-            /*
-            "id": 1,
-            "name": "Leanne Graham",
-            "username": "Bret",
-            "email": "Sincere@april.biz",
-            "address": {
-                "street": "Kulas Light",
-                "suite": "Apt. 556",
-                "city": "Gwenborough",
-                "zipcode": "92998-3874",
-                "geo": {
-                    "lat": "-37.3159",
-                    "lng": "81.1496"
-                }
-            },
-            "phone": "1-770-736-8031 x56442",
-            "website": "hildegard.org",
-            "company": {
-                "name": "Romaguera-Crona",
-                "catchPhrase": "Multi-layered client-server neural-net",
-                "bs": "harness real-time e-markets"
-            }
-            */
-        }).catch(function(err){
-            throw err;
-        })
+    insert : (params) => {
+        return axios({
+            method: 'post',
+            data: {...params},
+            url: `${ROOT_URL}/users`
+        });
+    },
+    delete: (id) =>{
+        return axios.delete('http://localhost:3000/users/' + id, );
+    },
+    update : ( obj, callback )=> {
+
     },
     assignUsers : (params, callback) => {
         const { users, todoId } = params;

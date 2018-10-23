@@ -32,7 +32,7 @@ class AssignItem extends Component {
 
 
 const mapState = (state, ownProps) => ({
-    assigned : state.assigned,
+    assigned : [],
     users : state.users
 })
 export default connect(mapState)(AssignItem);

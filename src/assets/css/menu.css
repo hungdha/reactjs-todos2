@@ -1,0 +1,11 @@
+.nav-item{
+    margin: 10px 0;
+}
+.nav-item a{
+    padding: 10px;
+}
+.nav-item > a.active{
+    font-weight: bold;
+    color : white;
+    background: #4060a9
+}

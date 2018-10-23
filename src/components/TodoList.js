@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
-// import { fetchTodos } from '../actions';
+// import { fetchTodos } from '../actions/todos';
 import {PER_PAGE} from '../constants';
+import Comments from './Comments';
+import CommentForm from './CommentForm';
 // import TodoMenu from './TodoMenu';
 class TodoList extends Component {
     constructor(props){
@@ -12,25 +14,23 @@ class TodoList extends Component {
     }
     
     render() {
-        const {todos, countTotalTodos, dispatch } = this.props;
+        const {todosList, comments } = this.props;
         return (
                 <div>
-                { todos.isFetching ? (
+                { todosList.loading ? (
                     <div>
                     <p>Loading...</p>
                     </div>
                 ) : 
-                ( <ol style={{ width:'100%', padding:'0'}}>
+                ( <ol style={{ listStyle:'none', width:'100%', padding:'0'}}>
                     {
-                        todos.items.map((todo, index) =>(
+                        todosList.todos.map((todo, index) =>(
                           
                             <li  key={todo.id} style={index % 2 == 0 ? { backgroundColor:'#f4f4f4', padding:'10px 5px'}: { backgroundColor:'#fefefe', padding:'10px 5px'} }>
-                                <TodoItem
-                                   
-                                    {...todo}
-                                >
-                                </TodoItem>
-                                
+                                Todo ID {todo.id}
+                                <TodoItem todo={todo} />                            
+                                <CommentForm />
+                                <Comments comments={comments}/>
                             </li>
                         )
                         

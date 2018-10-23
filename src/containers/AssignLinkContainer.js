@@ -2,26 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AssignBox from '../components/AssignBox';
 import SelectCheckbox from '../components/SelectCheckbox';
-import { assignUsers } from '../actions';
+import { assignUsers } from '../actions/todos';
 import PropTypes from 'prop-types';
 
 class AssignLink extends Component {
     handleAssign(users){
-        let {dispatch, todoId} = this.props;
-        dispatch(assignUsers(users, todoId))
+        let {dispatch, todo} = this.props;
+        dispatch(assignUsers(users, todo.id ))
     }
     render() {
         return (
             <div>
-                <SelectCheckbox data={this.props.users} 
+               {/*  <SelectCheckbox data={this.props.users.items} 
                 onDone={(e) => this.handleAssign(e)}    
-                 />
+                 /> */}
             </div>
         );
     }
 }
+
 AssignLink.propTypes = {
-    todoId: PropTypes.number.isRequired
+    todo: PropTypes.shape({
+        id : PropTypes.number.isRequired
+    }) 
 }
 
 const mapStateToProps = (state, ownProps) => (

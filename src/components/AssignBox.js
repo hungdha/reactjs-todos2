@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SelectCheckbox from './SelectCheckbox';
 // import {connect} from 'react-redux';
-import { assignUser } from '../actions';
+import { assignUser } from '../actions/todos';
 
 class AssignBox extends Component {
     constructor(props){

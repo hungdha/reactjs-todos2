@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {setVisibilityFilter, VisibilityFilters} from '../actions'
+// import {setVisibilityFilter, VisibilityFilters} from '../actions'
+// import {Link} from 'react-router-dom';
 class Link extends Component {
     render() {
         return (

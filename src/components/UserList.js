@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
-import AddUser from '../containers/AddUser';
-import Paging from './Paging';
+import UserItem from '../components/UserItem';
 
 class UserList extends Component {
-    countAssign(uid){
-        let {assigned} = this.props;
-        return assigned.filter( (obj) => (
-            obj.userid == uid
-        )).length;
-    }
+
     render() {
+        const { title, children } = this.props;
         return (
             <div>
-                <AddUser />
-                <ul>
-                    {
-                        this.props.users.map( (user) => (
-                            <li key={user.id}>UID: {user.id}, Name: {user.name}, Assigned ({this.countAssign(user.id)})</li>
-                        ))
-                    } 
-                </ul>
-                <Paging />
+                <h3>{title}</h3>
+                <div>{children}</div>
             </div>
         );
     }

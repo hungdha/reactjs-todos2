@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { VisibilityFilters } from '../actions';
+import { VisibilityFilters } from '../actions/todos';
 
 class Counter extends Component {
     render() {

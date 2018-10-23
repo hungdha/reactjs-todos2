@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FilterLink from '../containers/FilterLink';
-import { VisibilityFilters } from '../actions';
+import { VisibilityFilters } from '../actions/todos';
 // import {connect} from 'react-redux';
 import CountFilter from '../containers/CountFilter';
 class TodoFilter extends Component {
