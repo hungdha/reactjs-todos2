@@ -22,18 +22,18 @@ class App extends Component {
         return (
             <div>
                 <Menu />
-                <main role="main" className="container">
-                    <Switch>
-                        <Route exact path="/" component={HomePage}/>
-                        <Route exact path="/home" component={HomePage}/>
-                        <Route path="/todos" component={TodosPage} />
-                        <Route path="/todo/create" component={CreateTodoPage} />
-                        <Route path="/users" component={UsersPage} />
-                        <Route path="/login" component={LoginPage} />
-                        <Route path="/register" component={ResgiterPage} />
-                        <Route path="/gamemini" component={GameMiniPage} />
-                    </Switch>
-                </main>
+                    <main role="main" className="container">
+                        <Switch>
+                            <Route exact path="/" component={HomePage}/>
+                            <Route exact path="/home" component={HomePage}/>
+                            <Route path="/todos" component={TodosPage} />
+                            <Route path="/todo/create" component={CreateTodoPage} />
+                            <Route path="/users" component={UsersPage} />
+                            <Route path="/login" component={LoginPage} />
+                            <Route path="/register" component={ResgiterPage} />
+                            <Route path="/gamemini" component={GameMiniPage} />
+                        </Switch>
+                    </main>
                 <Footer />
            </div>
         );

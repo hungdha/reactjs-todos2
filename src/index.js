@@ -1,26 +1,29 @@
-import React from 'react'
-import {render} from 'react-dom'
-import {createStore, applyMiddleware, compose } from 'redux'
-import {Provider} from 'react-redux'
-import {createLogger} from 'redux-logger'
-import App from './views/App'
-import rootReducer from './reducers'
+import React from 'react';// React
+import {render} from 'react-dom';// react dom
+import {createStore, applyMiddleware, compose } from 'redux'; // redux
+import {Provider} from 'react-redux'; // redux
+import {createLogger} from 'redux-logger'; // redux logger
+import App from './views/App'; // view index
+import rootReducer from './reducers' ;// redux
 
-import thunk from 'redux-thunk'
-import {BrowserRouter} from 'react-router-dom';
+import thunk from 'redux-thunk';// redux
+import {BrowserRouter} from 'react-router-dom'; // react router
 // import configureStore from './store/configureStore';
 
 
 const middleware = [thunk];
+// env dev, create logger
 if (process.env.NODE_ENV !== 'production') {
-    // middleware.push(createLogger());
+    middleware.push(createLogger());
 }
+// soan enhancer
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
  const store = createStore(rootReducer,composeEnhancers(
     applyMiddleware(...middleware)
     )
 ) 
 
+// khoi tao middleware
 const initialState = composeEnhancers(
     applyMiddleware(...middleware)
 )
