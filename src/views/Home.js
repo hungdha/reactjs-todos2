@@ -38,11 +38,11 @@ class Home extends Component {
         ]
         return (
             <div>
-                <h3 style={{fontSize:'30px', fontWeight:'500'}}>Welcome to Todo-App</h3>
+                <h3 style={{fontSize:'30px', fontWeight:'500'}}>Welcome to Todo2-App</h3>
                 <img src={require('../assets/images/todo_logo_oriz.png')} alt="alt" />
                 <img src={require('../assets/images/logo.png')} alt="alt" />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum magni, iusto sint eius consequatur veritatis reprehenderit suscipit voluptatum dolor reiciendis optio eum! Facere quos dignissimos inventore eos repellat quis esse.</p>
-                <h3>Select Checkbox Components11</h3>
+                <h3>Select Checkbox Components</h3>
                <SelectCheckbox data={data} />
                 <button type="button" onClick={ (event) => this.setState({ number : this.state.number +1 })}>Props Number +1</button>
                <DebugLifeCycle number={this.state.number}  />
