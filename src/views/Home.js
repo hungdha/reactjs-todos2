@@ -17,7 +17,7 @@ class Home extends Component {
             },
             {
                 id  : 2,
-                name : '2 Checkbox'
+                name : 'Checkbox two'
             },
             {
                 id  : 3,
