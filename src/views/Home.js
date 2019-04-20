@@ -26,14 +26,6 @@ class Home extends Component {
             {
                 id  : 4,
                 name : 'Four Checkbox'
-            },
-            {
-                id  : 5,
-                name : 'asda sd Checkbox'
-            },
-            {
-                id  : 6,
-                name : 'sd asd adas Checkbox'
             }
         ]
         return (
