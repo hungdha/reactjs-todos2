@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 // import { fetchTodos } from '../actions/todos';
 import {PER_PAGE} from '../../constants';
-import Comments from '../Comments';
-import CommentForm from '../CommentForm';
+// import Comments from '../Comment/Comments';
+import CommentsContainer from '../../containers/CommentsContainer';
+import CommentForm from '../Comment/CommentForm';
 // import TodoMenu from './TodoMenu';
 class TodoList extends Component {
     constructor(props){
         super(props);
-        
     }
     
     render() {
@@ -29,8 +29,9 @@ class TodoList extends Component {
                             <li  key={todo.id} style={index % 2 == 0 ? { backgroundColor:'#f4f4f4', padding:'10px 5px'}: { backgroundColor:'#fefefe', padding:'10px 5px'} }>
                                 Todo ID {todo.id}
                                 <TodoItem todo={todo} />                            
-                                <CommentForm />
-                                <Comments comments={comments}/>
+                                <h5>Comment list below: </h5>
+                                <CommentsContainer todo={todo}/>
+                                <CommentForm todo={todo} />
                             </li>
                         )
                         

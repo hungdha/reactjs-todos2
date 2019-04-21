@@ -7,6 +7,7 @@ class TodoMenu extends Component {
        
         return (
             <div>
+                Filter:
                 <ul>
                     <li>
                         <NavLink to='/todos' activeClassName="selected"

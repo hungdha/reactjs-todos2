@@ -13,7 +13,7 @@ import {BrowserRouter} from 'react-router-dom';
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
-    // middleware.push(createLogger());
+    middleware.push(createLogger());
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
  const store = createStore(rootReducer,composeEnhancers(

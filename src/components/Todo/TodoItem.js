@@ -18,7 +18,7 @@ class TodoItem extends Component {
                 </div>
                 <hr />
                 <TodoFormQuickEditContainer todo={todo}  />
-                <ActionLinkContainer todo={todo}/>
+                <ActionLinkContainer todo={todo} />
                 <AssignLinkContainer todo={todo} />
                 <AssignItem todo={todo} />
             </div>

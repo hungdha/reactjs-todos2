@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { deleteTodo, toggleTodo, updateTodoEditing, fetchTodos } from '../actions/todos';
-
+import { fetchCommentsOfTodo } from '../actions/comments';
 
 class Link extends Component {
     
@@ -20,7 +20,8 @@ class Link extends Component {
                 ) : (
                     <a href="javascript:void(0);"   onClick={this.props.onCompleted}>Unfinished</a>
                 )
-                }
+                }|
+                <a href="javascript:void(0);"  onClick={this.props.onFetchComments}>Comment</a>
                 
             </div>
         );
@@ -41,8 +42,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>(
         } ),
         onEdit : () => dispatch(updateTodoEditing(ownProps.todo.id)),
         onCompleted : () => dispatch(toggleTodo(ownProps.todo)).then( () => {
-            dispatch(fetchTodos())
-        })
+            dispsatch(fetchTodos())
+        }),
+        onFetchComments : () => dispatch(fetchCommentsOfTodo(ownProps.todo)) 
     }
 )
 

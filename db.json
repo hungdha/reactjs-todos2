@@ -874,5 +874,43 @@
       "id": 79
     }
   ],
-  "assigns": []
+  "assigns": [],
+  "comments": [
+    {
+      "id": 1,
+      "todo_id": 1,
+      "user_id": 1,
+      "comment": "comment abc"
+    },
+    {
+      "id": 2,
+      "todo_id": 2,
+      "user_id": 1,
+      "comment": "comment abc 2"
+    },
+    {
+      "id": 3,
+      "todo_id": 3,
+      "user_id": 1,
+      "comment": "comment abc 3"
+    },
+    {
+      "id": 4,
+      "todo_id": 2,
+      "user_id": 2,
+      "comment": "comment abc 4"
+    },
+    {
+      "todo_id": 2,
+      "user_id": 10,
+      "comment": "asdasdasd",
+      "id": 5
+    },
+    {
+      "todo_id": 2,
+      "user_id": 10,
+      "comment": "sdasd",
+      "id": 6
+    }
+  ]
 }
