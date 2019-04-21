@@ -328,14 +328,7 @@
   ],
   "todos": [
     {
-      "title": "QOT",
-      "content": "EQUITOX",
-      "completed": false,
-      "createdAt": "2018-10-22T16:58:29.028Z",
-      "id": 1
-    },
-    {
-      "title": "CYCLONICA",
+      "title": "CYCLONICAasdasd",
       "content": "ZILLAN",
       "completed": true,
       "createdAt": "2018-10-22T16:58:29.028Z",
@@ -461,8 +454,8 @@
       "id": 19
     },
     {
-      "title": "ARCTIQ",
-      "content": "ZANILLA",
+      "title": "ARCTIQsadas",
+      "content": "ZANILLAsdsaddsads",
       "completed": true,
       "createdAt": "2018-10-22T16:58:29.028Z",
       "id": 20

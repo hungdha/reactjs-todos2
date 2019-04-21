@@ -5,7 +5,7 @@ import VisibleTodoListContainer from '../containers/VisibleTodoListContainer';
 import {Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 // import TodoFilter from '../components/TodoFilter';
-import TodoMenu from '../components/TodoMenu';
+import TodoMenu from '../components/Todo/TodoMenu';
 
 
 

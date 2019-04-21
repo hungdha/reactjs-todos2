@@ -3,9 +3,9 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 // import { fetchTodos } from '../actions/todos';
-import {PER_PAGE} from '../constants';
-import Comments from './Comments';
-import CommentForm from './CommentForm';
+import {PER_PAGE} from '../../constants';
+import Comments from '../Comments';
+import CommentForm from '../CommentForm';
 // import TodoMenu from './TodoMenu';
 class TodoList extends Component {
     constructor(props){

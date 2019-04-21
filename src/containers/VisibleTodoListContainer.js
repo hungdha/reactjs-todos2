@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // components
-import TodoList from '../components/TodoList';
+import TodoList from '../components/Todo/TodoList';
 // actions
 import {VisibilityFilters,  fetchTodos } from '../actions/todos';
 

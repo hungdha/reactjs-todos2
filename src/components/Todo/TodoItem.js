@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ActionLinkContainer from '../containers/ActionLinkContainer';
-import TodoFormQuickEditContainer from '../containers/TodoFormQuickEditContainer';
-import AssignLinkContainer from '../containers/AssignLinkContainer';
-import AssignItem from './AssignItem';
+import ActionLinkContainer from '../../containers/ActionLinkContainer';
+import TodoFormQuickEditContainer from '../../containers/TodoFormQuickEditContainer';
+import AssignLinkContainer from '../../containers/AssignLinkContainer';
+import AssignItem from '../AssignItem';
 
 class TodoItem extends Component {
     render() {
